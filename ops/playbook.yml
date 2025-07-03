@@ -1,7 +1,10 @@
 - name: Example api for learning
   hosts: localhost
   connection: local
-  become: true
+  become: yes
+    
+  vars_files:
+    - secrets.yml
 
   tasks:
     - name: Package installation
