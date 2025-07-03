@@ -1,0 +1,60 @@
+- name: Example api for learning
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Package installation
+      apt:
+        name: [python3, monit]
+        state: present
+        update_cache: yes
+
+    - name: flask installation
+      pip:
+        name: flask
+
+    - name: Api copying
+      copy:
+        src: ../src/api/api.py
+        dest: /opt/api/api.py
+        mode: 0755
+
+    - name: systemd unit copying
+      template:
+        src: systemd-service/api.service.j2
+        dest: /etc/systemd/system/api.service
+        mode: 0644
+      notify:
+        - Reload Systemd
+        - Restart api service
+
+    - name: monit copying
+      copy:
+        src: monit/api
+        dest: /etc/monit/conf-enabled/api
+      notify: Monit reload
+
+    - name: api enabling and starting
+      systemd:
+        name: api.service
+        enabled: yes
+        state: started
+
+    - name: monit enabling and starting
+      systemd:
+        name: monit
+        enabled: yes
+        state: started
+
+
+  handlers:
+    - name: Reload Systemd
+      command: systemctl daemon-reload
+
+    - name: Restart api service
+      command: systemctl restart api.service
+
+    - name: Monit reload
+      command: monit reload
+
