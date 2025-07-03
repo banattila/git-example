@@ -15,7 +15,9 @@
 
     - name: flask installation
       pip:
-        name: flask
+        name:
+          - flask
+          - argparse
 
     - name: Api copying
       copy:
