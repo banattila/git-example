@@ -1,0 +1,5 @@
+CHECK PROCESS api-service MATCHING "api.py"
+	START PROGRAM = "/bin/systemctl start api.service"
+	STOP PROGRAM = "/bin/systemctl stop api.service"
+	IF NOT EXIST THEN RESTART
+	IF 3 RESTARTS WITHIN 5 CYCLE THEN TIMEOUT
