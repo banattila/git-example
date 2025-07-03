@@ -1,0 +1,12 @@
+[Unit]
+Description=Single flask api for learning everyting
+After=target.network
+
+[Service]
+User=root
+WorkingDirectory=/opt/api
+ExecStart=/usr/bin/python3 /opt/api/api.py --port={{ api_port }} --host={{ api_host }}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
