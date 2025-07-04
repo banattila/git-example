@@ -1,4 +1,4 @@
-#Api tutorial for Git and other operation helpers
+# Api tutorial for Git and other operation helpers
 
 I want to excersie the git and systemd usage
 
