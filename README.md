@@ -1,6 +1,6 @@
 # Api tutorial for Git and other operation helpers
 
-I want to excersie the git and systemd usage
+#### I want to exercise the git and systemd usage
 
 ## Git
 
@@ -9,6 +9,8 @@ I want to excersie the git and systemd usage
 - I merge to master branch
 - I rebased a branch to other branch
 - I tried git fetch and git pull
+- I used pull and fetch commands
+- I used git rebase interactive for delete commits
 
 ## Operation
 
