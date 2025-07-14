@@ -11,6 +11,7 @@
 - I tried git fetch and git pull
 - I used pull and fetch commands
 - I used git rebase interactive for delete commits
+- I tried mergetool
 
 ## Operation
 
