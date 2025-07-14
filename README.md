@@ -8,6 +8,7 @@ I want to excersie the git and systemd usage
 - I do anything on separated branch
 - I merge to master branch
 - I rebased a branch to other branch
+- I tried git fetch and git pull
 
 ## Operation
 
